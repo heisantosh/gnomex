@@ -1,0 +1,920 @@
+{
+    "extensions": [
+        {
+            "uuid": "user-theme@gnome-shell-extensions.gcampax.github.com",
+            "name": "User Themes",
+            "creator": "fmuellner",
+            "creator_url": "/accounts/profile/fmuellner",
+            "pk": 19,
+            "description": "Load shell themes from user directory.",
+            "link": "/extension/19/user-themes/",
+            "icon": "/static/images/plugin.png",
+            "screenshot": null,
+            "shell_version_map": {
+                "3.3.2": {
+                    "pk": 41,
+                    "version": 2
+                },
+                "3.3.3": {
+                    "pk": 503,
+                    "version": 3
+                },
+                "3.3.4": {
+                    "pk": 646,
+                    "version": 4
+                },
+                "3.3.90": {
+                    "pk": 837,
+                    "version": 5
+                },
+                "3.4": {
+                    "pk": 1015,
+                    "version": 6
+                },
+                "3.5.5": {
+                    "pk": 1697,
+                    "version": 7
+                },
+                "3.5.90": {
+                    "pk": 1743,
+                    "version": 8
+                },
+                "3.5.91": {
+                    "pk": 1814,
+                    "version": 9
+                },
+                "3.6": {
+                    "pk": 2218,
+                    "version": 11
+                },
+                "3.7.5": {
+                    "pk": 2498,
+                    "version": 13
+                },
+                "3.7.90": {
+                    "pk": 2569,
+                    "version": 14
+                },
+                "3.7.92": {
+                    "pk": 2649,
+                    "version": 15
+                },
+                "3.8": {
+                    "pk": 3223,
+                    "version": 18
+                },
+                "3.10": {
+                    "pk": 3254,
+                    "version": 19
+                },
+                "3.12": {
+                    "pk": 3746,
+                    "version": 20
+                },
+                "3.14": {
+                    "pk": 4386,
+                    "version": 22
+                },
+                "3.15.1": {
+                    "pk": 4451,
+                    "version": 23
+                },
+                "3.15.3": {
+                    "pk": 4568,
+                    "version": 24
+                },
+                "3.16": {
+                    "pk": 4752,
+                    "version": 25
+                },
+                "3.18": {
+                    "pk": 5212,
+                    "version": 26
+                },
+                "3.20": {
+                    "pk": 5753,
+                    "version": 27
+                },
+                "3.21.2": {
+                    "pk": 5970,
+                    "version": 28
+                },
+                "3.22": {
+                    "pk": 6202,
+                    "version": 29
+                },
+                "3.26": {
+                    "pk": 7480,
+                    "version": 32
+                },
+                "3.24": {
+                    "pk": 7481,
+                    "version": 33
+                },
+                "3.28": {
+                    "pk": 8103,
+                    "version": 34
+                },
+                "3.30": {
+                    "pk": 8388,
+                    "version": 35
+                },
+                "3.32": {
+                    "pk": 10231,
+                    "version": 37
+                },
+                "3.34": {
+                    "pk": 13345,
+                    "version": 39
+                },
+                "3.36": {
+                    "pk": 14396,
+                    "version": 40
+                }
+            }
+        },
+        {
+            "uuid": "dash-to-dock@micxgx.gmail.com",
+            "name": "Dash to Dock",
+            "creator": "michele_g",
+            "creator_url": "/accounts/profile/michele_g",
+            "pk": 307,
+            "description": "A dock for the Gnome Shell. This extension moves the dash out of the overview transforming it in a dock for an easier launching of applications and a faster switching between windows and desktops. Side and bottom placement options are available.",
+            "link": "/extension/307/dash-to-dock/",
+            "icon": "/extension-data/icons/icon_307_2.png",
+            "screenshot": "/extension-data/screenshots/screenshot_307_VW5dorQ.png",
+            "shell_version_map": {
+                "3.2": {
+                    "pk": 1494,
+                    "version": 7
+                },
+                "3.4": {
+                    "pk": 2051,
+                    "version": 16
+                },
+                "3.6": {
+                    "pk": 2404,
+                    "version": 19
+                },
+                "3.8": {
+                    "pk": 3236,
+                    "version": 22
+                },
+                "3.10": {
+                    "pk": 3840,
+                    "version": 30
+                },
+                "3.12": {
+                    "pk": 4745,
+                    "version": 41
+                },
+                "3.14": {
+                    "pk": 5573,
+                    "version": 51
+                },
+                "3.16": {
+                    "pk": 5574,
+                    "version": 52
+                },
+                "3.18": {
+                    "pk": 9189,
+                    "version": 65
+                },
+                "3.20": {
+                    "pk": 9189,
+                    "version": 65
+                },
+                "3.22": {
+                    "pk": 9189,
+                    "version": 65
+                },
+                "3.24": {
+                    "pk": 9189,
+                    "version": 65
+                },
+                "3.26": {
+                    "pk": 9189,
+                    "version": 65
+                },
+                "3.28": {
+                    "pk": 9189,
+                    "version": 65
+                },
+                "3.30": {
+                    "pk": 9189,
+                    "version": 65
+                },
+                "3.32": {
+                    "pk": 9456,
+                    "version": 66
+                },
+                "3.34": {
+                    "pk": 12397,
+                    "version": 67
+                }
+            }
+        },
+        {
+            "uuid": "openweather-extension@jenslody.de",
+            "name": "OpenWeather",
+            "creator": "jens",
+            "creator_url": "/accounts/profile/jens",
+            "pk": 750,
+            "description": "Weather extension to display weather information from https://openweathermap.org/ or https://darksky.net for almost all locations in the world.\nFor openweathermap.org, you can either use the extensions default-key or register at https://openweathermap.org/appid and set the appropriate switch in the preferences dialog to \"off\".\nFor Dark Sky you have to register at https://darksky.net/dev/register and get a personal API-key.\n\nSince version 29 this extensions uses coordinates to store the locations and makes the names editable to support multiple weather-providers!\nIf you update from versions prior to 29 to 29 or greater (with darksky.net - support) you have to recreate your locations.",
+            "link": "/extension/750/openweather/",
+            "icon": "/extension-data/icons/icon_750.png",
+            "screenshot": "/extension-data/screenshots/screenshot_750.png",
+            "shell_version_map": {
+                "3.6": {
+                    "pk": 4795,
+                    "version": 28
+                },
+                "3.8": {
+                    "pk": 6565,
+                    "version": 80
+                },
+                "3.10": {
+                    "pk": 6565,
+                    "version": 80
+                },
+                "3.12": {
+                    "pk": 6565,
+                    "version": 80
+                },
+                "3.11.5": {
+                    "pk": 3694,
+                    "version": 13
+                },
+                "3.11.90": {
+                    "pk": 3694,
+                    "version": 13
+                },
+                "3.13.1": {
+                    "pk": 4144,
+                    "version": 23
+                },
+                "3.13.4": {
+                    "pk": 4199,
+                    "version": 24
+                },
+                "3.14": {
+                    "pk": 8620,
+                    "version": 97
+                },
+                "3.15.4": {
+                    "pk": 4678,
+                    "version": 26
+                },
+                "3.15.91": {
+                    "pk": 4732,
+                    "version": 27
+                },
+                "3.16": {
+                    "pk": 8620,
+                    "version": 97
+                },
+                "3.17.3": {
+                    "pk": 5058,
+                    "version": 39
+                },
+                "3.17.4": {
+                    "pk": 5415,
+                    "version": 52
+                },
+                "3.17.90": {
+                    "pk": 5415,
+                    "version": 52
+                },
+                "3.17.91": {
+                    "pk": 5415,
+                    "version": 52
+                },
+                "3.17.92": {
+                    "pk": 5415,
+                    "version": 52
+                },
+                "3.18": {
+                    "pk": 8620,
+                    "version": 97
+                },
+                "3.19.1": {
+                    "pk": 5610,
+                    "version": 65
+                },
+                "3.19.2": {
+                    "pk": 5610,
+                    "version": 65
+                },
+                "3.19.3": {
+                    "pk": 5610,
+                    "version": 65
+                },
+                "3.19.4": {
+                    "pk": 5610,
+                    "version": 65
+                },
+                "3.20": {
+                    "pk": 8620,
+                    "version": 97
+                },
+                "3.21.3": {
+                    "pk": 6120,
+                    "version": 70
+                },
+                "3.21.90": {
+                    "pk": 6216,
+                    "version": 75
+                },
+                "3.21.91": {
+                    "pk": 6216,
+                    "version": 75
+                },
+                "3.21.92": {
+                    "pk": 6216,
+                    "version": 75
+                },
+                "3.22": {
+                    "pk": 8620,
+                    "version": 97
+                },
+                "3.24": {
+                    "pk": 8620,
+                    "version": 97
+                },
+                "3.26": {
+                    "pk": 8620,
+                    "version": 97
+                },
+                "3.28": {
+                    "pk": 8620,
+                    "version": 97
+                },
+                "3.30": {
+                    "pk": 8620,
+                    "version": 97
+                },
+                "3.34": {
+                    "pk": 13696,
+                    "version": 99
+                },
+                "3.32": {
+                    "pk": 13696,
+                    "version": 99
+                }
+            }
+        },
+        {
+            "uuid": "caffeine@patapon.info",
+            "name": "Caffeine",
+            "creator": "eon",
+            "creator_url": "/accounts/profile/eon",
+            "pk": 517,
+            "description": "Disable the screensaver and auto suspend",
+            "link": "/extension/517/caffeine/",
+            "icon": "/extension-data/icons/icon_517.png",
+            "screenshot": "/extension-data/screenshots/screenshot_517.png",
+            "shell_version_map": {
+                "3.4": {
+                    "pk": 3601,
+                    "version": 15
+                },
+                "3.6": {
+                    "pk": 3601,
+                    "version": 15
+                },
+                "3.5.91": {
+                    "pk": 2450,
+                    "version": 8
+                },
+                "3.7.1": {
+                    "pk": 2450,
+                    "version": 8
+                },
+                "3.8": {
+                    "pk": 3601,
+                    "version": 15
+                },
+                "3.10": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.12": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.14": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.16": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.18": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.20": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.22": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.24": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.26": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.28": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.30": {
+                    "pk": 9961,
+                    "version": 32
+                },
+                "3.32": {
+                    "pk": 14066,
+                    "version": 34
+                },
+                "3.34": {
+                    "pk": 14066,
+                    "version": 34
+                }
+            }
+        },
+        {
+            "uuid": "clipboard-indicator@tudmotu.com",
+            "name": "Clipboard Indicator",
+            "creator": "Tudmotu",
+            "creator_url": "/accounts/profile/Tudmotu",
+            "pk": 779,
+            "description": "Clipboard Manager extension for Gnome-Shell - Adds a clipboard indicator to the top panel, and caches clipboard history.",
+            "link": "/extension/779/clipboard-indicator/",
+            "icon": "/extension-data/icons/icon_779_i1fZ741.png",
+            "screenshot": "/extension-data/screenshots/screenshot_779_z38Ay1y.png",
+            "shell_version_map": {
+                "3.10": {
+                    "pk": 12523,
+                    "version": 32
+                },
+                "3.12": {
+                    "pk": 12523,
+                    "version": 32
+                },
+                "3.14": {
+                    "pk": 12523,
+                    "version": 32
+                },
+                "3.16": {
+                    "pk": 12523,
+                    "version": 32
+                },
+                "3.18": {
+                    "pk": 12523,
+                    "version": 32
+                },
+                "3.20": {
+                    "pk": 12523,
+                    "version": 32
+                },
+                "3.22": {
+                    "pk": 12523,
+                    "version": 32
+                },
+                "3.24": {
+                    "pk": 12556,
+                    "version": 33
+                },
+                "3.26": {
+                    "pk": 12556,
+                    "version": 33
+                },
+                "3.28": {
+                    "pk": 12556,
+                    "version": 33
+                },
+                "3.30": {
+                    "pk": 12556,
+                    "version": 33
+                },
+                "3.34": {
+                    "pk": 12556,
+                    "version": 33
+                },
+                "3.32": {
+                    "pk": 12556,
+                    "version": 33
+                }
+            }
+        },
+        {
+            "uuid": "pomodoro@arun.codito.in",
+            "name": "Pomodoro",
+            "creator": "kamilprusko",
+            "creator_url": "/accounts/profile/kamilprusko",
+            "pk": 53,
+            "description": "A simple pomodoro timer\n\nNOTICE\nNew versions are no longer distributed through extensions.gnome.org. Look for \"pomodoro\" in your distros repositories or grab package from http://gnomepomodoro.org",
+            "link": "/extension/53/pomodoro/",
+            "icon": "/extension-data/icons/icon_53_5.png",
+            "screenshot": "/extension-data/screenshots/screenshot_53_2.png",
+            "shell_version_map": {
+                "3.2": {
+                    "pk": 115,
+                    "version": 1
+                },
+                "3.4": {
+                    "pk": 3360,
+                    "version": 9
+                },
+                "3.3.90": {
+                    "pk": 1127,
+                    "version": 2
+                },
+                "3.3.91": {
+                    "pk": 1127,
+                    "version": 2
+                },
+                "3.6": {
+                    "pk": 3361,
+                    "version": 10
+                },
+                "3.5.91": {
+                    "pk": 3361,
+                    "version": 10
+                },
+                "3.5.92": {
+                    "pk": 3361,
+                    "version": 10
+                },
+                "3.3.92": {
+                    "pk": 3360,
+                    "version": 9
+                },
+                "3.8": {
+                    "pk": 3562,
+                    "version": 14
+                },
+                "3.7.91": {
+                    "pk": 3562,
+                    "version": 14
+                },
+                "3.7.92": {
+                    "pk": 3562,
+                    "version": 14
+                },
+                "3.9.90": {
+                    "pk": 3563,
+                    "version": 15
+                },
+                "3.10": {
+                    "pk": 3563,
+                    "version": 15
+                },
+                "3.9.91": {
+                    "pk": 3563,
+                    "version": 15
+                },
+                "3.9.92": {
+                    "pk": 3563,
+                    "version": 15
+                }
+            }
+        },
+        {
+            "uuid": "alternate-tab@gnome-shell-extensions.gcampax.github.com",
+            "name": "AlternateTab",
+            "creator": "fmuellner",
+            "creator_url": "/accounts/profile/fmuellner",
+            "pk": 15,
+            "description": "Substitute Alt-Tab with a window based switcher that does not group by application.\n\nThis extension is obsolete and unsupported since GNOME 3.32, see https://blogs.gnome.org/fmuellner/2018/10/11/the-future-of-alternatetab-and-why-you-need-not-worry/  for further details.",
+            "link": "/extension/15/alternatetab/",
+            "icon": "/static/images/plugin.png",
+            "screenshot": "/extension-data/screenshots/screenshot_15.png",
+            "shell_version_map": {
+                "3.3.2": {
+                    "pk": 31,
+                    "version": 2
+                },
+                "3.2": {
+                    "pk": 282,
+                    "version": 3
+                },
+                "3.2.3": {
+                    "pk": 282,
+                    "version": 3
+                },
+                "3.3.3": {
+                    "pk": 492,
+                    "version": 4
+                },
+                "3.3.4": {
+                    "pk": 638,
+                    "version": 5
+                },
+                "3.3.90": {
+                    "pk": 829,
+                    "version": 6
+                },
+                "3.4": {
+                    "pk": 1006,
+                    "version": 7
+                },
+                "3.5.5": {
+                    "pk": 1726,
+                    "version": 9
+                },
+                "3.5.90": {
+                    "pk": 1734,
+                    "version": 10
+                },
+                "3.5.91": {
+                    "pk": 1805,
+                    "version": 11
+                },
+                "3.6": {
+                    "pk": 2211,
+                    "version": 13
+                },
+                "3.7.5": {
+                    "pk": 2487,
+                    "version": 15
+                },
+                "3.7.90": {
+                    "pk": 2558,
+                    "version": 16
+                },
+                "3.7.92": {
+                    "pk": 2638,
+                    "version": 17
+                },
+                "3.8": {
+                    "pk": 3214,
+                    "version": 20
+                },
+                "3.10": {
+                    "pk": 3246,
+                    "version": 21
+                },
+                "3.12": {
+                    "pk": 3738,
+                    "version": 22
+                },
+                "3.14": {
+                    "pk": 4394,
+                    "version": 24
+                },
+                "3.15.1": {
+                    "pk": 4461,
+                    "version": 25
+                },
+                "3.15.3": {
+                    "pk": 4581,
+                    "version": 27
+                },
+                "3.16": {
+                    "pk": 4761,
+                    "version": 28
+                },
+                "3.18": {
+                    "pk": 5204,
+                    "version": 30
+                },
+                "3.20": {
+                    "pk": 5762,
+                    "version": 31
+                },
+                "3.21.2": {
+                    "pk": 5978,
+                    "version": 32
+                },
+                "3.22": {
+                    "pk": 6210,
+                    "version": 33
+                },
+                "3.24": {
+                    "pk": 6685,
+                    "version": 34
+                },
+                "3.26": {
+                    "pk": 7469,
+                    "version": 36
+                },
+                "3.28": {
+                    "pk": 8122,
+                    "version": 38
+                },
+                "3.30": {
+                    "pk": 8380,
+                    "version": 39
+                }
+            }
+        },
+        {
+            "uuid": "disconnect-wifi@kgshank.net",
+            "name": "Disconnect Wifi",
+            "creator": "kgshank",
+            "creator_url": "/accounts/profile/kgshank",
+            "pk": 904,
+            "description": "Adds a Disconnect option for Wifi in status menu, when a network is connected. Shows a Reconnect option, after network is disconnected.",
+            "link": "/extension/904/disconnect-wifi/",
+            "icon": "/extension-data/icons/icon_904_oNd5I0V.png",
+            "screenshot": "/extension-data/screenshots/screenshot_904.png",
+            "shell_version_map": {
+                "3.10": {
+                    "pk": 7653,
+                    "version": 18
+                },
+                "3.14": {
+                    "pk": 7653,
+                    "version": 18
+                },
+                "3.16": {
+                    "pk": 7653,
+                    "version": 18
+                },
+                "3.18": {
+                    "pk": 7653,
+                    "version": 18
+                },
+                "3.20": {
+                    "pk": 7653,
+                    "version": 18
+                },
+                "3.22": {
+                    "pk": 8573,
+                    "version": 20
+                },
+                "3.24": {
+                    "pk": 8573,
+                    "version": 20
+                },
+                "3.26": {
+                    "pk": 8573,
+                    "version": 20
+                },
+                "3.28": {
+                    "pk": 8573,
+                    "version": 20
+                },
+                "3.30": {
+                    "pk": 8573,
+                    "version": 20
+                },
+                "3.34": {
+                    "pk": 12028,
+                    "version": 21
+                },
+                "3.32": {
+                    "pk": 12028,
+                    "version": 21
+                }
+            }
+        },
+        {
+            "uuid": "refresh-wifi@kgshank.net",
+            "name": "Refresh Wifi Connections",
+            "creator": "kgshank",
+            "creator_url": "/accounts/profile/kgshank",
+            "pk": 905,
+            "description": "This extension adds a refresh button to the Wifi connection selection dialog to request for a network scan manually.",
+            "link": "/extension/905/refresh-wifi-connections/",
+            "icon": "/extension-data/icons/icon_905.png",
+            "screenshot": "/extension-data/screenshots/screenshot_905.png",
+            "shell_version_map": {
+                "3.10": {
+                    "pk": 8533,
+                    "version": 10
+                },
+                "3.14": {
+                    "pk": 8533,
+                    "version": 10
+                },
+                "3.16": {
+                    "pk": 8533,
+                    "version": 10
+                },
+                "3.18": {
+                    "pk": 8533,
+                    "version": 10
+                },
+                "3.20": {
+                    "pk": 8533,
+                    "version": 10
+                },
+                "3.22": {
+                    "pk": 8533,
+                    "version": 10
+                },
+                "3.24": {
+                    "pk": 8533,
+                    "version": 10
+                },
+                "3.26": {
+                    "pk": 8533,
+                    "version": 10
+                },
+                "3.28": {
+                    "pk": 8533,
+                    "version": 10
+                },
+                "3.30": {
+                    "pk": 8533,
+                    "version": 10
+                },
+                "3.34": {
+                    "pk": 12034,
+                    "version": 11
+                },
+                "3.32": {
+                    "pk": 12034,
+                    "version": 11
+                }
+            }
+        },
+        {
+            "uuid": "nohotcorner@azuri.free.fr",
+            "name": "No Topleft Hot Corner",
+            "creator": "azuri",
+            "creator_url": "/accounts/profile/azuri",
+            "pk": 118,
+            "description": "This extension disables the top left hot corners. You can still click on Activities or press the dedicated key to reach the overview. Since 3.8, should work with other extensions modifying the Activities button. On versions prior to 3.8, may not disable other hotcorners in multiscreen configurations and won't work on fallback/flashback mode.",
+            "link": "/extension/118/no-topleft-hot-corner/",
+            "icon": "/static/images/plugin.png",
+            "screenshot": "/extension-data/screenshots/screenshot_118_2.png",
+            "shell_version_map": {
+                "3.2": {
+                    "pk": 398,
+                    "version": 1
+                },
+                "3.4": {
+                    "pk": 5291,
+                    "version": 12
+                },
+                "3.6": {
+                    "pk": 5291,
+                    "version": 12
+                },
+                "3.8": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.10": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.12": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.14": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.16": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.18": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.20": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.22": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.24": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.26": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.28": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.30": {
+                    "pk": 9547,
+                    "version": 19
+                },
+                "3.32": {
+                    "pk": 9547,
+                    "version": 19
+                }
+            }
+        }
+    ],
+    "total": 10,
+    "numpages": 31
+}
