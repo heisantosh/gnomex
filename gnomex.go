@@ -19,7 +19,7 @@ const (
 	_extensionHomeURL  = "https://extensions.gnome.org"
 	_searchURL         = "https://extensions.gnome.org/extension-query"
 	_downloadURLFormat = "https://extensions.gnome.org/extension-data/UUID.vVERSION.shell-extension.zip"
-	_version           = "gnomex version 0.0.1"
+	_version           = "gnomex version 0.1.0"
 	_helpText          = _version + `
 
 Search, install and uinstall GNOME Shell extensions.
