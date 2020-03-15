@@ -15,6 +15,7 @@ import (
 )
 
 const (
+	_extensionHomeURL  = "https://extensions.gnome.org"
 	_searchURL         = "https://extensions.gnome.org/extension-query"
 	_downloadURLFormat = "https://extensions.gnome.org/extension-data/UUID.vVERSION.shell-extension.zip"
 	_version           = "0.0.1"
@@ -27,7 +28,9 @@ Commands
 	list                    list installed extensions
 	install <uuid>          install extension with the uuid
 	uinstall <uuid>         uninstall extension with the uuid
-	version                 print version
+	version                 print gnomex version
+	upgrade [uuid]...       upgrade extension
+	about <uuid>            print detailed information of the extension
 	help                    print this help information
 
 Examples
@@ -45,6 +48,12 @@ Examples
 
 	List installed extensions
 	$ gnomex list
+
+	Upgrade all extensions
+	$ gnomex upgrade
+
+	Upgrade some extensions
+	$ gnomex dash-to-dock@micxgx.gmail.com user-theme@gnome-shell-extensions.gcampax.github.com
 
 `
 )
@@ -81,6 +90,14 @@ func newGnomex() *gnomex {
 	return g
 }
 
+func checkArgs(badCondition bool) {
+	if badCondition {
+		fmt.Println("unknown arguments")
+		fmt.Println("type `gnomex help` to see usage")
+		os.Exit(1)
+	}
+}
+
 func (g *gnomex) run() {
 	if len(os.Args) == 1 {
 		fmt.Print(_helpText)
@@ -91,11 +108,7 @@ func (g *gnomex) run() {
 
 	switch command {
 	case "search":
-		if len(os.Args) > 3 {
-			fmt.Println("unknown arguments")
-			fmt.Println("type `gnomex help` to see usage")
-			return
-		}
+		checkArgs(len(os.Args) > 3)
 
 		query := ""
 		if len(os.Args) == 3 {
@@ -104,29 +117,26 @@ func (g *gnomex) run() {
 
 		g.search(query)
 	case "list":
-		if len(os.Args) != 2 {
-			fmt.Println("unknown arguments")
-			fmt.Println("type `gnomex help` to see usage")
-			return
-		}
-
+		checkArgs(len(os.Args) != 2)
 		g.list()
 	case "install":
-		if len(os.Args) != 3 {
-			fmt.Println("unknown arguments")
-			fmt.Println("type `gnomex help` to see usage")
-			return
-		}
-
+		checkArgs(len(os.Args) != 3)
 		g.install(os.Args[2])
 	case "uninstall":
-		if len(os.Args) != 3 {
-			fmt.Println("unknown arguments")
-			fmt.Println("type `gnomex help` to see usage")
-			return
-		}
-
+		checkArgs(len(os.Args) != 3)
 		g.uninstall(os.Args[2])
+	case "upgrade":
+		if len(os.Args) == 2 {
+			// upgradeAll()
+		} else if len(os.Args) > 2 {
+			for _, UUID := range os.Args[2:] {
+				_ = UUID
+				// upgrade(UUID)
+			}
+		}
+	case "about":
+		checkArgs(len(os.Args) != 3)
+		g.about(os.Args[2])
 	default:
 		fmt.Print(_helpText)
 	}
@@ -186,13 +196,17 @@ func (g *gnomex) fetchDb(query string) {
 	}
 }
 
+func printShortInfo(v Extension) {
+	color.Yellow.Print(v.Name)
+	color.Green.Print(" (" + v.UUID + ") ")
+	color.Magenta.Print("by ")
+	color.Cyan.Println(v.Creator)
+}
+
 func (g *gnomex) search(query string) {
 	g.fetchDb(query)
 	for _, v := range g.extensions {
-		color.Yellow.Print(v.Name)
-		color.Green.Print(" (" + v.UUID + ") ")
-		color.Magenta.Print("by ")
-		color.Cyan.Println(v.Creator)
+		printShortInfo(v)
 	}
 }
 
@@ -226,4 +240,25 @@ func (g *gnomex) download(UUID string) {
 // unisntall uinstalls the extension with given UUID
 func (g *gnomex) uninstall(UUID string) {
 	fmt.Println("uinstalling", UUID)
+}
+
+func (g *gnomex) upgradeAll() {
+
+}
+
+func (g *gnomex) upgrade(UUID string) {
+
+}
+
+func (g *gnomex) about(UUID string) {
+	g.fetchDb(UUID)
+
+	v, ok := g.extensions[UUID]
+	if !ok {
+		fmt.Println("extension with UUID", UUID, "not found")
+		os.Exit(1)
+	}
+
+	printShortInfo(v)
+	fmt.Printf("%v\n\n%v\n", _extensionHomeURL+v.Link, v.Description)
 }

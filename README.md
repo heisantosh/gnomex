@@ -144,3 +144,20 @@ uuid - description
 uuid - description
 uuid - description
 ```
+
+### Upgrade installed extensions
+
+Upgrade all extensions
+```bash
+$ gnomex upgrade
+```
+
+Upgrade some extensions
+```bash
+$ gnomex uuid1 uuid2 uuid3
+```
+
+### Show detailed information of an extension
+```bash
+$ gnomex about uuid
+```

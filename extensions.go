@@ -5,6 +5,7 @@ type Extension struct {
 	Name        string `json:"name"`
 	Creator     string `json:"creator"`
 	Description string `json:"description"`
+	Link        string `json:"link"`
 	// ShellVersionMap map[string]ShellVersion `json:"shell_version_map"`
 	ShellVersion map[string]struct {
 		Pk      int `json:"pk"`
