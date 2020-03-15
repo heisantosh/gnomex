@@ -182,3 +182,19 @@ description
 <img src="https://raw.githubusercontent.com/heisantosh/gnomex/master/screenshots/list.png" alt="List">
 
 
+## Installation
+
+### Install from source
+This installation method requires `Go` (version >= 1.14) and `git` to be installed on the system.
+
+```bash
+$ git clone https://github.com/heisantosh/gnomex.git
+$ cd gnomex
+$ go install
+```
+
+### Download prebuilt binaries
+
+Or download the prebuilt binaries and place in your `$PATH`.
+
+https://github.com/heisantosh/gnomex/releases
