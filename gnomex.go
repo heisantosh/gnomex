@@ -76,6 +76,7 @@ func findGnomeShellVersion() string {
 	}
 
 	// Format: GNOME Shell 3.34.3
+	fmt.Println(string(out))
 	v := strings.Replace(string(out), "GNOME Shell", "", 1)
 	parts := strings.Split(v, ".")
 	return strings.TrimSpace(parts[0] + "." + parts[1])
@@ -134,7 +135,7 @@ func (g *gnomex) run() {
 		} else if len(os.Args) > 2 {
 			for _, UUID := range os.Args[2:] {
 				_ = UUID
-				// upgrade(UUID)
+				g.upgrade(UUID)
 			}
 		}
 	case "about":
@@ -205,17 +206,18 @@ func (g *gnomex) fetchDb(query string) {
 	}
 }
 
-func printShortInfo(v Extension) {
+func (g *gnomex) printShortInfo(v Extension) {
 	color.Yellow.Print(v.Name)
 	color.Green.Print(" (" + v.UUID + ") ")
-	color.Magenta.Print("by ")
+	color.Blue.Print("version " + strconv.Itoa(v.ShellVersion[g.gnomeShellVersion].Version))
+	color.Magenta.Print(" by ")
 	color.Cyan.Println(v.Creator)
 }
 
 func (g *gnomex) search(query string) {
 	g.fetchDb(query)
 	for _, v := range g.extensions {
-		printShortInfo(v)
+		g.printShortInfo(v)
 	}
 }
 
@@ -239,9 +241,8 @@ func (g *gnomex) install(UUID string) {
 		return
 	}
 
-	printShortInfo(extn)
+	g.printShortInfo(extn)
 
-	fmt.Println("downloading extension")
 	fileName := g.download(UUID)
 	defer os.Remove(fileName)
 
@@ -250,16 +251,13 @@ func (g *gnomex) install(UUID string) {
 		fmt.Println("\nunable to install extension")
 		os.Exit(1)
 	}
-	fmt.Println("\nextension installed")
-
 	_, err = exec.Command("gnome-extensions", "enable", UUID).Output()
 	if err != nil {
 		fmt.Println("\nunable to enable extension")
 		os.Exit(1)
 	}
-	fmt.Println("extension enabled")
 
-	fmt.Print("to activate the extension restart GNOME Shell by pressing ")
+	fmt.Print("\rto activate the extension restart GNOME Shell by pressing ")
 	color.Yellow.Print("Alt + F2")
 	fmt.Print(" and enter ")
 	color.Yellow.Println("r")
@@ -350,7 +348,7 @@ func (g *gnomex) upgradeAll() {
 }
 
 func (g *gnomex) upgrade(UUID string) {
-	fmt.Println("not implemented yet")
+	g.install(UUID)
 }
 
 func (g *gnomex) about(UUID string) {
@@ -362,6 +360,6 @@ func (g *gnomex) about(UUID string) {
 		os.Exit(1)
 	}
 
-	printShortInfo(v)
+	g.printShortInfo(v)
 	fmt.Printf("%v\n\n%v\n", _extensionHomeURL+v.Link, v.Description)
 }
