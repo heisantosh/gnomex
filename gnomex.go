@@ -213,7 +213,13 @@ func (g *gnomex) search(query string) {
 
 // list lists all installed extensions
 func (g *gnomex) list() {
-	fmt.Println("listing...")
+	out, err := exec.Command("gnome-extensions", "list").Output()
+	if err != nil {
+		fmt.Println("\nunable to list installed extensions")
+		os.Exit(1)
+	}
+
+	fmt.Print(string(out))
 }
 
 // install installs the extension with given UUID
@@ -306,17 +312,29 @@ func (g *gnomex) download(UUID string) string {
 	return fileName
 }
 
+func (g *gnomex) disable(UUID string) {
+	_, err := exec.Command("gnome-extensions", "disable", UUID).Output()
+	if err != nil {
+		fmt.Println("\nunable to disable extension")
+		os.Exit(1)
+	}
+}
+
 // unisntall uinstalls the extension with given UUID
 func (g *gnomex) uninstall(UUID string) {
-	fmt.Println("uinstalling", UUID)
+	_, err := exec.Command("gnome-extensions", "uninstall", UUID).Output()
+	if err != nil {
+		fmt.Println("\nunable to disable extension")
+		os.Exit(1)
+	}
 }
 
 func (g *gnomex) upgradeAll() {
-
+	fmt.Println("not implemented yet")
 }
 
 func (g *gnomex) upgrade(UUID string) {
-
+	fmt.Println("not implemented yet")
 }
 
 func (g *gnomex) about(UUID string) {
