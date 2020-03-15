@@ -1,5 +1,5 @@
 # gnomex
-
+<h1>🐮</h1>
 A CLI tool to search and install GNOME Shell extensions.
 
 ## Context
