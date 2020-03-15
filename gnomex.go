@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -53,7 +54,7 @@ Examples
 	$ gnomex upgrade
 
 	Upgrade some extensions
-	$ gnomex dash-to-dock@micxgx.gmail.com user-theme@gnome-shell-extensions.gcampax.github.com
+	$ gnomex dash-to-dock@micxgx.gmail.com Resource_Monitor@Ory0n
 
 `
 )
@@ -223,18 +224,86 @@ func (g *gnomex) install(UUID string) {
 		fmt.Println("unable to find extension")
 		return
 	}
-	fmt.Println("installing", extn)
+
+	printShortInfo(extn)
+
+	fmt.Println("downloading extension")
+	fileName := g.download(UUID)
+	defer os.Remove(fileName)
+
+	_, err := exec.Command("gnome-extensions", "install", "--force", fileName).Output()
+	if err != nil {
+		fmt.Println("\nunable to install extension")
+		os.Exit(1)
+	}
+	fmt.Println("\nextension installed")
+
+	_, err = exec.Command("gnome-extensions", "enable", UUID).Output()
+	if err != nil {
+		fmt.Println("\nunable to enable extension")
+		os.Exit(1)
+	}
+	fmt.Println("extension enabled")
+
+	fmt.Print("to activate the extension restart GNOME Shell by pressing ")
+	color.Yellow.Print("Alt + F2")
+	fmt.Print(" and enter ")
+	color.Yellow.Println("r")
 }
 
-// download downloads the extension with given UUID
-func (g *gnomex) download(UUID string) {
-	g.fetchDb(UUID)
-	extn, ok := g.extensions[UUID]
-	if !ok {
-		fmt.Println("unable to find extension")
-		return
+type writeCount int
+
+func (wc *writeCount) Write(p []byte) (int, error) {
+	n := len(p)
+	*wc += writeCount(n)
+	fmt.Printf("\r%s", "                                          ")
+	size := (float32(*wc) / 1024) / 1024
+	fmt.Printf("\r%.2f MB downloaded", size)
+	return n, nil
+}
+
+// download downloads the extension with given UUID.
+// Returns the location of the downloaded file.
+func (g *gnomex) download(UUID string) string {
+	extn := g.extensions[UUID]
+
+	downloadURL := strings.Replace(_downloadURLFormat, "UUID", extn.UUID, 1)
+	downloadURL = strings.Replace(downloadURL, "@", "", 1)
+	version := strconv.Itoa(extn.ShellVersion[g.gnomeShellVersion].Version)
+	downloadURL = strings.Replace(downloadURL, "VERSION", version, 1)
+
+	req, err := http.NewRequest("GET", downloadURL, nil)
+	if err != nil {
+		fmt.Println("unable to form request to search:", err)
+		os.Exit(1)
 	}
-	fmt.Println("downloading", extn)
+
+	req.Header.Set("User-Agent", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:74.0) Gecko/20100101 Firefox/74.0")
+	req.Header.Set("Accept-Encoding", "gzip, deflate, br")
+
+	res, err := g.client.Do(req)
+	if err != nil {
+		fmt.Println("unable to download extension from", downloadURL)
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	defer res.Body.Close()
+
+	tmpFile, err := ioutil.TempFile("", UUID)
+	if err != nil {
+		fmt.Println("unable to create file to save:", err)
+		os.Exit(1)
+	}
+	defer tmpFile.Close()
+	fileName := tmpFile.Name()
+
+	count := writeCount(0)
+	if _, err = io.Copy(tmpFile, io.TeeReader(res.Body, &count)); err != nil {
+		fmt.Println("unable to write to file:", err)
+		os.Exit(1)
+	}
+
+	return fileName
 }
 
 // unisntall uinstalls the extension with given UUID

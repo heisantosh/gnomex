@@ -101,7 +101,7 @@ $ # Enable the extension
 $ gnome-extensions enable dash-to-dock@micxgx.gmail.com
 ```
 
-Then restart GNOME Shell by pression `Alt + F2` and enter `r`.
+Then restart GNOME Shell by pressing `Alt + F2` and enter `r`.
 
 Now the extension will be active.
 
