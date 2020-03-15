@@ -64,7 +64,7 @@ Examples
 // gnomex application
 type gnomex struct {
 	gnomeShellVersion string
-	client            http.Client
+	client            *http.Client
 	extensions        map[string]Extension
 }
 
@@ -85,7 +85,7 @@ func findGnomeShellVersion() string {
 func newGnomex() *gnomex {
 	g := &gnomex{
 		gnomeShellVersion: findGnomeShellVersion(),
-		client: http.Client{
+		client: &http.Client{
 			Timeout: time.Second * 2,
 		},
 		extensions: make(map[string]Extension),
