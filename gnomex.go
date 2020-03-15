@@ -19,8 +19,8 @@ const (
 	_extensionHomeURL  = "https://extensions.gnome.org"
 	_searchURL         = "https://extensions.gnome.org/extension-query"
 	_downloadURLFormat = "https://extensions.gnome.org/extension-data/UUID.vVERSION.shell-extension.zip"
-	_version           = "0.0.1"
-	_helpText          = `gnomex version ` + _version + `
+	_version           = "gnomex version 0.0.1"
+	_helpText          = _version + `
 
 Search, install and uinstall GNOME Shell extensions.
 
@@ -111,6 +111,9 @@ func (g *gnomex) run() {
 	command := os.Args[1]
 
 	switch command {
+	case "version":
+		checkArgs(len(os.Args) != 2)
+		fmt.Println(_version)
 	case "search":
 		checkArgs(len(os.Args) > 3)
 
