@@ -108,6 +108,11 @@ Now the extension will be active.
 ### Managing extension settings
 `GNOME Tweaks` application can be used to manage the installed extensions and the settings of the extensions.
 
+### Link of extension on extension website
+`https://extensions.gnome.org/extension/1082/cpufreq/`
+
+The format is `https://extensions.gnome.org/{link}` where link is from the extension object in the search result.
+
 ## Plan
 
 ### Searching for extensions
@@ -160,4 +165,8 @@ $ gnomex uuid1 uuid2 uuid3
 ### Show detailed information of an extension
 ```bash
 $ gnomex about uuid
+name (uuid) by creator
+link
+
+description
 ```
