@@ -131,7 +131,7 @@ func (g *gnomex) run() {
 		g.uninstall(os.Args[2])
 	case "upgrade":
 		if len(os.Args) == 2 {
-			// upgradeAll()
+			g.upgradeAll()
 		} else if len(os.Args) > 2 {
 			for _, UUID := range os.Args[2:] {
 				_ = UUID
@@ -344,7 +344,18 @@ func (g *gnomex) uninstall(UUID string) {
 }
 
 func (g *gnomex) upgradeAll() {
-	fmt.Println("not implemented yet")
+	out, err := exec.Command("gnome-extensions", "list").Output()
+	if err != nil {
+		fmt.Println("unable to find installed list")
+		os.Exit(1)
+	}
+
+	uuids := strings.Split(string(out), "\n")
+	uuids = uuids[:len(uuids)-1]
+	for i, uuid := range uuids {
+		fmt.Printf("%d) %s\n", i, uuid)
+		g.upgrade(uuid)
+	}
 }
 
 func (g *gnomex) upgrade(UUID string) {
