@@ -29,6 +29,8 @@ Commands
 	list                    list installed extensions
 	install <uuid>          install extension with the uuid
 	uinstall <uuid>         uninstall extension with the uuid
+	enable <uuid>           enable extension with the uuid
+	disable <uuid>          disable extension with the uuid
 	version                 print gnomex version
 	upgrade [uuid]...       upgrade extension
 	about <uuid>            print detailed information of the extension
@@ -138,6 +140,12 @@ func (g *gnomex) run() {
 	case "about":
 		checkArgs(len(os.Args) != 3)
 		g.about(os.Args[2])
+	case "enable":
+		checkArgs(len(os.Args) != 3)
+		g.enable(os.Args[2])
+	case "disable":
+		checkArgs(len(os.Args) != 3)
+		g.enable(os.Args[2])
 	default:
 		fmt.Print(_helpText)
 	}
@@ -191,7 +199,7 @@ func (g *gnomex) fetchDb(query string) {
 			g.extensions[a.UUID] = a
 		}
 
-		if v.Numpages == page {
+		if page >= v.Numpages {
 			return
 		}
 	}
@@ -314,6 +322,14 @@ func (g *gnomex) download(UUID string) string {
 
 func (g *gnomex) disable(UUID string) {
 	_, err := exec.Command("gnome-extensions", "disable", UUID).Output()
+	if err != nil {
+		fmt.Println("\nunable to disable extension")
+		os.Exit(1)
+	}
+}
+
+func (g *gnomex) enable(UUID string) {
+	_, err := exec.Command("gnome-extensions", "enable", UUID).Output()
 	if err != nil {
 		fmt.Println("\nunable to disable extension")
 		os.Exit(1)
