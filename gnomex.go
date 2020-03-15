@@ -76,7 +76,6 @@ func findGnomeShellVersion() string {
 	}
 
 	// Format: GNOME Shell 3.34.3
-	fmt.Println(string(out))
 	v := strings.Replace(string(out), "GNOME Shell", "", 1)
 	parts := strings.Split(v, ".")
 	return strings.TrimSpace(parts[0] + "." + parts[1])
