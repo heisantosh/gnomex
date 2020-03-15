@@ -170,3 +170,15 @@ link
 
 description
 ```
+
+## Screenshots
+
+<img src="https://raw.githubusercontent.com/heisantosh/gnomex/master/screenshots/search-desktop.png" alt="Search 'desktop'">
+
+<img src="https://raw.githubusercontent.com/heisantosh/gnomex/master/screenshots/about.png" alt="About">
+
+<img src="https://raw.githubusercontent.com/heisantosh/gnomex/master/screenshots/install.png" alt="Install">
+
+<img src="https://raw.githubusercontent.com/heisantosh/gnomex/master/screenshots/list.png" alt="List">
+
+
