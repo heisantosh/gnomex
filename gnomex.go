@@ -22,21 +22,33 @@ const (
 	_version           = "gnomex version 0.1.0"
 	_helpText          = _version + `
 
-Search, install and uinstall GNOME Shell extensions.
+Search, install and uinstall GNOME Shell extensions from the website 
+https://extensions.gnome.org.
 
-Commands
-	search [query]          search extensions
-	list                    list installed extensions
-	install <uuid>          install extension with the uuid
-	uinstall <uuid>         uninstall extension with the uuid
-	enable <uuid>           enable extension with the uuid
-	disable <uuid>          disable extension with the uuid
-	version                 print gnomex version
-	upgrade [uuid]...       upgrade extension
-	about <uuid>            print detailed information of the extension
-	help                    print this help information
+COMMANDS
+	search [query]          Search extensions.
 
-Examples
+	list                    List all installed extensions.
+	
+	install <uuid>          Install extension with the uuid. Replace if already
+	                        installed.
+
+	uninstall <uuid>        Uninstall extension with the uuid.
+
+	enable <uuid>           Enable extension with the uuid.
+
+	disable <uuid>          Disable extension with the uuid.
+
+	version                 Print gnomex version.
+
+	upgrade [uuid]...       Upgrade extension(s). It may not be able to upgrade
+	                        some extensions installed by the system.
+							
+	about <uuid>            Print detailed information of the extension.
+
+	help                    Print this help information.
+
+EXAMPLES
 	Search extension with query "user themes"
 	$ gnomex search "user themes"
 

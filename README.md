@@ -198,3 +198,57 @@ $ go install
 Or download the prebuilt binaries and place in your `$PATH`.
 
 https://github.com/heisantosh/gnomex/releases
+
+### Usage
+```bash
+$ gnomex help
+gnomex version 0.1.0
+
+Search, install and uinstall GNOME Shell extensions from the website 
+https://extensions.gnome.org.
+
+COMMANDS
+	search [query]          Search extensions.
+
+	list                    List all installed extensions.
+	
+	install <uuid>          Install extension with the uuid. Replace if already
+	                        installed.
+
+	uninstall <uuid>        Uninstall extension with the uuid.
+
+	enable <uuid>           Enable extension with the uuid.
+
+	disable <uuid>          Disable extension with the uuid.
+
+	version                 Print gnomex version.
+
+	upgrade [uuid]...       Upgrade extension(s). It may not be able to upgrade
+	                        some extensions installed by the system.
+							
+	about <uuid>            Print detailed information of the extension.
+
+	help                    Print this help information.
+
+EXAMPLES
+	Search extension with query "user themes"
+	$ gnomex search "user themes"
+
+	Search all extensions
+	$ gnomex search
+
+	Install dash-to-dock extension
+	$ gnomex install dash-to-dock@micxgx.gmail.com
+
+	Uinstall dash-to-dock extension
+	$ gnomex uninstall dash-to-dock@micxgx.gmail.com
+
+	List installed extensions
+	$ gnomex list
+
+	Upgrade all extensions
+	$ gnomex upgrade
+
+	Upgrade some extensions
+	$ gnomex dash-to-dock@micxgx.gmail.com Resource_Monitor@Ory0n
+```
