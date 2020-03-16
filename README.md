@@ -202,7 +202,7 @@ https://github.com/heisantosh/gnomex/releases
 ### Usage
 ```bash
 $ gnomex help
-gnomex version 0.1.0
+gnomex version 0.1.1
 
 Search, install and uinstall GNOME Shell extensions from the website 
 https://extensions.gnome.org.
