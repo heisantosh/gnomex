@@ -1,6 +1,6 @@
 # gnomex
 <h1>🐮</h1>
-A CLI tool to search and install GNOME Shell extensions.
+A CLI tool to search and install GNOME Shell extensions from the GNOME extensions website https://extensions.gnome.org/.
 
 ## Context
 The usual way to install GNOME Shell extensions is to visit https://extensions.gnome.org/. And install the browser extension and the host connector and install the extension. This tool aims to ease the installation of extensions through a CLI.
