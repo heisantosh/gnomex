@@ -105,6 +105,7 @@ func newGnomex() *gnomex {
 	return g
 }
 
+// checkArgs prints message if bad condition then exits the application
 func checkArgs(badCondition bool) {
 	if badCondition {
 		fmt.Println("unknown arguments")
@@ -166,8 +167,8 @@ func (g *gnomex) run() {
 	}
 }
 
-// fetchDb downloads the details of all extensions from gnome extension website.
-// A better approach would be cache the db and provide a command to refresh it if necessary.
+// fetchDb downloads the details of all extensions from gnome extension website
+// for the current GNOME Shell version and the search query.
 func (g *gnomex) fetchDb(query string) {
 	page := 0
 
@@ -220,6 +221,7 @@ func (g *gnomex) fetchDb(query string) {
 	}
 }
 
+// printShortInfo prints a short one line information about the extension.
 func (g *gnomex) printShortInfo(v Extension) {
 	color.Yellow.Print(v.Name)
 	color.Green.Print(" (" + v.UUID + ") ")
@@ -228,10 +230,17 @@ func (g *gnomex) printShortInfo(v Extension) {
 	color.Cyan.Println(v.Creator)
 }
 
+// search extensions matching the query string and prints a short information
+// of each extension in the search result
 func (g *gnomex) search(query string) {
+	fmt.Print("searching...")
 	g.fetchDb(query)
+	fmt.Print("\r")
 	for _, v := range g.extensions {
 		g.printShortInfo(v)
+	}
+	if len(g.extensions) == 0 {
+		fmt.Println("\rno matching extensions found")
 	}
 }
 
@@ -258,6 +267,8 @@ func (g *gnomex) install(UUID string) {
 	g.printShortInfo(extn)
 
 	fileName := g.download(UUID)
+	fmt.Println()
+
 	defer os.Remove(fileName)
 
 	_, err := exec.Command("gnome-extensions", "install", "--force", fileName).Output()
@@ -271,12 +282,13 @@ func (g *gnomex) install(UUID string) {
 		os.Exit(1)
 	}
 
-	fmt.Print("\rto activate the extension restart GNOME Shell by pressing ")
+	fmt.Print("to activate the extension restart GNOME Shell by pressing ")
 	color.Yellow.Print("Alt + F2")
 	fmt.Print(" and enter ")
 	color.Yellow.Println("r")
 }
 
+// writeCount stores the count of bytes copied.
 type writeCount int
 
 func (wc *writeCount) Write(p []byte) (int, error) {
@@ -332,6 +344,7 @@ func (g *gnomex) download(UUID string) string {
 	return fileName
 }
 
+// disable disables the extension with the given UUID.
 func (g *gnomex) disable(UUID string) {
 	_, err := exec.Command("gnome-extensions", "disable", UUID).Output()
 	if err != nil {
@@ -340,6 +353,7 @@ func (g *gnomex) disable(UUID string) {
 	}
 }
 
+// enable enables the extension with the given UUID.
 func (g *gnomex) enable(UUID string) {
 	_, err := exec.Command("gnome-extensions", "enable", UUID).Output()
 	if err != nil {
@@ -348,7 +362,7 @@ func (g *gnomex) enable(UUID string) {
 	}
 }
 
-// unisntall uinstalls the extension with given UUID
+// unisntall uninstalls the extension with given UUID.
 func (g *gnomex) uninstall(UUID string) {
 	_, err := exec.Command("gnome-extensions", "uninstall", UUID).Output()
 	if err != nil {
@@ -357,6 +371,8 @@ func (g *gnomex) uninstall(UUID string) {
 	}
 }
 
+// upgradeAll upgrades all installed extensions. Some extensions installed by
+// the system can not be upgraded.
 func (g *gnomex) upgradeAll() {
 	out, err := exec.Command("gnome-extensions", "list").Output()
 	if err != nil {
@@ -372,10 +388,12 @@ func (g *gnomex) upgradeAll() {
 	}
 }
 
+// upgrade reinstalls the extension to the latest available version.
 func (g *gnomex) upgrade(UUID string) {
 	g.install(UUID)
 }
 
+// about prints a more detailed information about the extension.
 func (g *gnomex) about(UUID string) {
 	g.fetchDb(UUID)
 
